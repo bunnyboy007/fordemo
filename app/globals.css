@@ -1,0 +1,22 @@
+
+
+@import "../app/style/banner.css";
+@import "../app/style/header.css";
+@import "../app/style/footer.css";
+@import "../app/style/innerstyle.css";
+@import "../app/style/aboutus.css";
+@import "../app/style/aboutsection.css";
+@import "../app/style/productsection.css";
+@import "../app/style/facts.css";
+@import "../app/style/portfolio.css";
+@import "../app/style/innerbanner.css";
+@import "../app/style/contactdetails.css";
+@import "../app/style/googlemap.css";
+@import "../app/style/contactform.css";
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+   font-family: var(--font-playfair), serif;
+}

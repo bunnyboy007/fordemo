@@ -1,0 +1,151 @@
+
+/* Portfolio Grid */
+section.portfolio-section {
+    padding: 60px 0;
+}
+
+h2.portfolio-titlemain {
+    text-align: center;
+    margin-bottom: 34px;
+    font-size: 48px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.portfolio-item {
+  cursor: pointer;
+}
+
+.portfolio-image {
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+.portfolio-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.9);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-popup-content {
+  max-width: 85%;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-popup-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+/* Close */
+.portfolio-popup-close {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+
+  width: 45px;
+  height: 45px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 32px;
+  line-height: 40px;
+
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* Previous */
+.portfolio-popup-prev,
+.portfolio-popup-next {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 50px;
+  height: 50px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+  z-index: 10001;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-popup-prev {
+  left: 30px;
+}
+
+.portfolio-popup-next {
+  right: 30px;
+}
+
+.portfolio-popup-prev:hover,
+.portfolio-popup-next:hover,
+.portfolio-popup-close:hover {
+  background: #ddd;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .portfolio-popup-prev {
+    left: 10px;
+  }
+
+  .portfolio-popup-next {
+    right: 10px;
+  }
+
+  .portfolio-popup-close {
+    top: 15px;
+    right: 15px;
+  }
+
+  .portfolio-popup-content {
+    max-width: 80%;
+  }
+
+  .portfolio-popup-image {
+    max-height: 75vh;
+  }
+}
