@@ -26,7 +26,6 @@
   top: 5px;
   width: 105px;
   height: 82px;
- 
   border: 6px solid #fff;
   z-index: 10;
 }
@@ -49,7 +48,6 @@
 .header-nav a {
   text-decoration: none;
   color: #222;
-  
   font-size: 16px;
   font-weight: 600;
   transition: 0.3s;
@@ -60,20 +58,44 @@
   color: #b87846;
 }
 
-/* Mobile button */
+/* Mobile hamburger button */
 
 .mobile-menu {
   display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
   border: none;
   background: transparent;
-  font-size: 28px;
   cursor: pointer;
+  padding: 0;
+  z-index: 20;
+}
+
+.mobile-menu span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #222;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger -> X when open */
+.mobile-menu.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.mobile-menu.open span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Tablet */
 
 @media (max-width: 991px) {
-
   .main-header {
     width: 90%;
     height: 75px;
@@ -94,11 +116,11 @@
 /* Mobile */
 
 @media (max-width: 768px) {
-
   .main-header {
     width: 94%;
     height: 65px;
     top: 15px;
+    overflow: visible; /* so the dropdown isn't clipped */
   }
 
   .header-logo {
@@ -109,12 +131,33 @@
     border-width: 4px;
   }
 
-  .header-nav {
-    display: none;
+  .mobile-menu {
+    display: flex;
+    margin-right: 15px;
   }
 
-  .mobile-menu {
-    display: block;
-    margin-right: 15px;
+  /* Nav becomes a dropdown panel instead of just vanishing */
+  .header-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+  }
+
+  .header-nav.menu-open {
+    display: flex;
+  }
+
+  .header-nav a {
+    width: 100%;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f0f0f0;
   }
 }
